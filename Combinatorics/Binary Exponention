@@ -1,4 +1,4 @@
-long long bexp(long long a, long long b) {
+long long biexp(long long a, long long b) {
     long long res = 1;    
     while (b > 0){
         if (b % 2 == 1) {
