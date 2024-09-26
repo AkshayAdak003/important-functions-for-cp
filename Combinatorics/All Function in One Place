@@ -1,0 +1,45 @@
+const int N = 1e5;
+vector<long long> fact(N+1) , invfact(N+1);
+
+
+long long biexp(long long a, long long b) {
+    long long res = 1;    
+    while (b > 0) {
+        if (b % 2 == 1) {
+            res = (res * a) % mod;
+        }
+        a = (a * a) % mod;
+        b /= 2;
+    }
+    return res;
+}
+
+void prefact() {
+    fact[0] = fact[1] = 1;
+    for (int i = 2; i <= N; ++i) {
+        fact[i] = (fact[i - 1] * i) % mod;
+    }
+    invfact[N] = biexp(fact[N], mod - 2); //--- Fermat's Little Theorem for inverse
+    
+    for (int i = N - 1; i >= 0; i--) {
+        invfact[i] = (invfact[i + 1] * (i + 1)) % mod;
+    }
+}
+
+
+long long ncr(long long n, long long r) {    
+    if (r > n || r < 0) return 0;
+    return   fact[n] * invfact[r] % mod * invfact[n-r] % mod;
+}
+
+long long npr(int n, int r){
+  if(r>n || r<0) return 0;
+  return   fact[n] * invfact[n-r]  % mod;
+}
+
+long long distru(int n, int r){
+    //solutions to x1 + ... + xn = r 
+    //xi >= 0
+ 
+    return ncr(n + r - 1, n - 1);
+}
