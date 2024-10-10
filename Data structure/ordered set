@@ -14,4 +14,5 @@ functions :  1) insert  2) erase
 use case : 
             1) count inversions  i<j  and a[i]>a[j]
                1.1) i<j<k  and  a[i]>a[j]>a[k]  -> can be solved by two set left bigger and right smaller
+            2) no  of subaray sum less/grater than target ( for both positive and negative value )
                
