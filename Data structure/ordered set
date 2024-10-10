@@ -1,0 +1,17 @@
+#include <ext/pb_ds/assoc_container.hpp> 
+#include <ext/pb_ds/tree_policy.hpp> 
+using namespace __gnu_pbds;
+
+
+#define ordered_set tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update>  // single
+
+#define ordered_set tree<pair<int,int>, null_type,less<pair<int,int>>, rb_tree_tag,tree_order_statistics_node_update>  // pair
+
+functions :  1) insert  2) erase 
+             3) os.order_of_key(k) -> no of element smaller than k    // k can be pair
+             4) *os.find_by_order(k) -> index wise element   // sometime astrik(*) might not be need   
+
+use case : 
+            1) count inversions  i<j  and a[i]>a[j]
+               1.1) i<j<k  and  a[i]>a[j]>a[k]  -> can be solved by two set left bigger and right smaller
+               
