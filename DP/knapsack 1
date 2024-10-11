@@ -1,0 +1,15 @@
+  vector<vector<ll>> dp(n+1,vector<ll>(w+1,0));
+  
+  // till dp[i][j] = till i-th element maximum profit
+  
+  for(int i=1;i<=n;i++){  // 
+    for(int j=1;j<=w;j++){
+      
+      if(j-wt[i]>=0){   // minimum space required condition
+        dp[i][j]=max(dp[i-1][j] , dp[i-1][j-wt[i]] + val[i]);  // previous row-same column and prev row and (column-curr wt)
+      }
+      dp[i][j] = max( dp[i][j], dp[i][j-1]); 
+      dp[i][j] = max( dp[i][j], dp[i-1][j]);  // previous left ceell and upper cell
+    }
+  }
+   cout<<dp[n][w]<<endl;
