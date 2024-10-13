@@ -1,0 +1,22 @@
+1)  check a  number fibonacci or not ->   5*n*n + 4  or 5*n*n - 4  perfect squre 
+2) calcute 0 <= n <= 10^18 fibonacci number mod 1e9+7
+
+   ->  F(2k+1)^2 = F(k+1)^2 + F(k)^2;
+       F(2k+1)^2 = F(k) * ( 2 * F(k+1) - F(k) );
+
+  const int MOD = 1e9 + 7;
+
+  pair<long long, long long> fib(long long n) {
+    if (n == 0)
+        return {0, 1};
+
+    auto p = fib(n >> 1);
+
+    long long  c = (1LL * p.first * ((2LL * p.second % MOD - p.first + MOD) % MOD)) % MOD;
+    long long d = (1LL * p.first * p.first % MOD + 1LL * p.second * p.second % MOD) % MOD;
+
+    if (n & 1)
+        return {d, (c + d) % MOD};
+    else
+        return {c, d};
+   }
