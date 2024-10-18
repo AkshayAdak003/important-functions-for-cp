@@ -1,0 +1,17 @@
+int fun(int x){
+  x=x*2;
+  int root = sqrt(x);
+  if(root*root + root <=x) return root;
+  return root-1;
+}
+int gausseureka(int n){
+
+vector<<int> v;
+while(n){
+  int val = fun(n); val = val*(val+1) / 2 ;
+  n-=val; v.push_back(val);
+  }
+}
+
+-> if n is a positive integer it can be construct sum of 3 triangular number
+-> triangular number = x*(x+1) / 2
