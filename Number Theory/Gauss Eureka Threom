@@ -4,8 +4,8 @@ int fun(int x){
   if(root*root + root <=x) return root;
   return root-1;
 }
-int gausseureka(int n){
 
+void gausseureka(int n){
 vector<<int> v;
 while(n){
   int val = fun(n); val = val*(val+1) / 2 ;
