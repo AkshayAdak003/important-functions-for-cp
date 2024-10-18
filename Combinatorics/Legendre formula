@@ -10,7 +10,7 @@ int fact_pow (int n, int k) {
 general formula :  k = (k1^p1) * (k2^p2) * (k3^p3) ....(k_m^p_m)
                    res = min (a_i/p_i)  where i = 1 to m  and a_i = fact_pow(n,k_i)
 
--> highest power of k (let's say x ) that divides n! (i.e.  (n! % k^x == 0) )
+-> highest power of k (let's say x ) that divides n! i.e.  (n! % k^x == 0) 
 USES :
   1) no of trailing zero of factorial of a number
   2) minimum number that has k  zeros of its factorial
