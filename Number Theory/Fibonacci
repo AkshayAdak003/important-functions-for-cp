@@ -20,3 +20,6 @@
     else
         return {c, d};
    }
+
+3) N-th number in the fibo series which is divisible by k is = (index * N) where 'index' is the first index where the number is divisible by k .
+   we can find the first index by brute force and it possible in O(n) . 
