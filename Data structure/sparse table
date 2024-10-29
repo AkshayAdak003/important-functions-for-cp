@@ -1,0 +1,31 @@
+const int N = 2e5 + 1;
+int spt[N][18];
+int v[N];
+
+void build(int n){
+  
+  for(int i=1;i<=n;i++) spt[i][0] = v[i];
+  
+  for(int k=1;k<18;k++){
+    for(int i=1; i + (1<<k) - 1<=n; i++){
+      
+      spt[i][k] = max( spt[i][k-1] , spt[i + (1 << (k-1))][k-1]  );
+      
+    }
+  }
+}
+
+int query(int l, int r){
+  int len = r-l+1;
+  int k = 31 - __builtin_clz(len);
+  return max( spt[l][k] , spt[r-(1<<k) + 1][k] );
+}
+
+int main()
+{
+  int n,q; cin>>n>>q;
+  for(int i=1;i<=n;i++) cin>>v[i];
+  build(n);
+}
+
+
